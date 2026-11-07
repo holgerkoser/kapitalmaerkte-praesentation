@@ -55,6 +55,7 @@
   /* Säulen */
   var cols = A.countries.map(function(c,i){
     var col = el("div","ch-col",plot);
+    if(c.code==="DE") col.classList.add("de");
     col.style.left = (i*colW + (colW-BAR_W)/2)+"px";
     col.style.width = BAR_W+"px";
     var segs = A.categories.map(function(k,j){
@@ -80,16 +81,6 @@
   });
 
   var tip = el("div","ch-tip",chart);
-
-  /* Rahmen um Deutschland (Substep aus dem HTML) an die Säule setzen */
-  var frame = wrap.querySelector(".frame");
-  var de = A.countries.findIndex(function(c){return c.code==="DE";});
-  if(frame && de>=0){
-    frame.style.left = (PLOT_L + de*colW - 4)+"px";
-    frame.style.width = (colW+8)+"px";
-    frame.style.top = (PLOT_T - 14)+"px";
-    frame.style.height = (PLOT_H + 64)+"px";
-  }
 
   /* Zustand */
   var qi = 0, merged = false, pinned = null, tipFor = null, shares = [];

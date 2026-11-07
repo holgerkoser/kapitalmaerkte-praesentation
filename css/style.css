@@ -124,8 +124,6 @@ b,strong{font-weight:800}
 .figwrap img{display:block;width:1600px;height:616px;border-radius:8px}
 .figwrap .ph{display:none;width:1600px;height:616px;border:4px dashed var(--lgray);align-items:center;justify-content:center;font-size:36px;color:var(--gray)}
 .figwrap.missing img{display:none}.figwrap.missing .ph{display:flex}
-.frame{position:absolute;left:52.5%;top:5.627%;width:8.1667%;height:68.83%;border:6px solid var(--orange);border-radius:10px;
-  box-shadow:0 0 0 6px rgba(224,122,31,.18);pointer-events:none}
 
 /* Interaktives Diagramm (js/chart-abb1.js); ohne Daten bleibt abb1.png sichtbar */
 .figwrap.chart-on img,.figwrap.chart-on .ph{display:none !important}
@@ -147,7 +145,6 @@ b,strong{font-weight:800}
 .chart.hl .ch-seg{opacity:.18}
 .chart.hl .ch-seg.on{opacity:1}
 .ch-xlab{position:absolute;top:508px;text-align:center;font-size:24px;font-weight:600}
-.ch-xlab.de{color:var(--orange);font-weight:800}
 .ch-legend{position:absolute;left:0;right:0;top:562px;display:grid;grid-template-columns:repeat(5,auto);justify-content:space-between;gap:6px 24px}
 .ch-leg{justify-self:start;display:flex;align-items:center;gap:10px;padding:4px 8px;border:0;border-radius:8px;background:none;font:inherit;font-size:21px;
   color:var(--navy);cursor:pointer;text-align:left;white-space:nowrap;transition:opacity .25s,background .25s}
@@ -169,7 +166,13 @@ b,strong{font-weight:800}
 .ch-switch[aria-checked="true"]{color:var(--navy)}
 .ch-switch[aria-checked="true"] i{background:var(--navy)}
 .ch-switch[aria-checked="true"] i::after{transform:translateX(24px)}
-#fig5 .frame{z-index:3}
+/* Klick-Schritt "Fokus Deutschland": DE leuchtet, Rest tritt zurück (unsichtbarer Substep als Auslöser) */
+.focus-de{display:none}
+.ch-col,.ch-xlab{transition:opacity .8s ease,filter .8s ease,color .8s ease,box-shadow .8s ease}
+#fig5:has(.focus-de.substep-visible) .ch-col:not(.de),
+#fig5:has(.focus-de.substep-visible) .ch-xlab:not(.de){opacity:.55;filter:grayscale(.75)}
+#fig5:has(.focus-de.substep-visible) .ch-col.de{z-index:2;box-shadow:0 0 0 6px var(--orange),0 0 24px 10px rgba(224,122,31,.6),0 0 60px 18px rgba(224,122,31,.3)}
+#fig5:has(.focus-de.substep-visible) .ch-xlab.de{color:var(--orange)}
 
 /* ---------- Step 6 ---------- */
 .cols{position:absolute;left:96px;top:190px;width:1728px;display:flex;gap:48px}

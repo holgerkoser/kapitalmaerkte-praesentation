@@ -2,7 +2,14 @@
 
 impress.js-Präsentation (10 Min.) zu Kogler, Malmendier, Nöh & Schaffranka (2024), Wirtschaftsdienst 104(8), 539–542.
 
-Öffnen: `index.html` im Browser – funktioniert komplett offline (impress.js 2.0.0 liegt lokal unter `js/`). Vollbild mit **F**.
+Öffnen: `index.html` direkt im Browser – funktioniert komplett offline, ohne Server und ohne Build (impress.js 2.0.0 liegt lokal unter `js/`).
+
+Entwickeln (optional, Node ≥ 20, Yarn 4 via Corepack):
+
+```
+yarn install       # einmalig
+yarn start         # Dev-Server mit Live-Reload, öffnet den Browser
+```
 
 Tasten: **→/Leertaste** weiter · **F** Vollbild · **P** Referentenansicht (eigenes Fenster mit Notizen, nächster Folie und Uhr).
 
@@ -17,10 +24,9 @@ Folie 5 zeichnet Abbildung 1 des Artikels aus den EIOPA-Rohdaten nach ([Insuranc
 Die Daten liegen offline in `js/abb1-data.js`. Aktualisieren:
 
 ```
-pip install openpyxl
-python3 scripts/eiopa_abb1.py      # lädt SQ_Exposure.xlsx (~70 MB) von EIOPA
+yarn data          # lädt SQ_Exposure.xlsx (~70 MB) von EIOPA und schreibt js/abb1-data.js
 ```
 
-Die Zuordnung der CIC-Kategorien zu den zehn Kategorien der Abbildung steht im Skript. Sie ist rekonstruiert und trifft die Originalabbildung auf etwa ±1 Prozentpunkt (EIOPA korrigiert ältere Quartale gelegentlich nachträglich).
+Die Zuordnung der CIC-Kategorien zu den zehn Kategorien der Abbildung steht in `scripts/eiopa-abb1.mjs`. Sie ist rekonstruiert und trifft die Originalabbildung auf etwa ±1 Prozentpunkt (EIOPA korrigiert ältere Quartale gelegentlich nachträglich).
 
 `abb1.png` ist die Originalabbildung aus dem Artikel; sie wird nur angezeigt, falls die Diagrammdaten fehlen.
