@@ -1260,6 +1260,7 @@ __metadata:
   resolution: "kapitalmaerkte-praesentation@workspace:."
   dependencies:
     exceljs: "npm:^4.4.0"
+    reveal.js: "npm:6.0.2"
     vite: "npm:^8.3.6"
   languageName: unknown
   linkType: soft
@@ -1777,6 +1778,13 @@ __metadata:
     gopd: "npm:^1.2.0"
     set-function-name: "npm:^2.0.2"
   checksum: 10c0/83b88e6115b4af1c537f8dabf5c3744032cb875d63bc05c288b1b8c0ef37cbe55353f95d8ca817e8843806e3e150b118bc624e4279b24b4776b4198232735a77
+  languageName: node
+  linkType: hard
+
+"reveal.js@npm:6.0.2":
+  version: 6.0.2
+  resolution: "reveal.js@npm:6.0.2"
+  checksum: 10c0/0e4d036c77597c359bbb3202fcd7581993675f5d1ddd249e16c3ba9c52c063aa690ddea60f5b78534ac67be7f73a2d9c4f168573c2a58e4b38dd34bac247b16d
   languageName: node
   linkType: hard
 

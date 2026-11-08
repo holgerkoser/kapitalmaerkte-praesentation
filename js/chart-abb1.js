@@ -175,6 +175,7 @@
 
   /* Beim Betreten der Folie immer mit dem Stand der Abbildung beginnen */
   function defaults(){ qi = Math.max(0, A.quarters.indexOf(DEFAULT_Q)); merged = false; pinned = null; hideTip(); render(); }
-  document.addEventListener("impress:stepenter", function(e){ if(e.target.id === "s5") defaults(); });
+  /* reveal.js: Event "slidechanged" blubbert bis zum document */
+  document.addEventListener("slidechanged", function(e){ if(e.currentSlide && e.currentSlide.id === "s5") defaults(); });
   defaults();
 })();

@@ -2,16 +2,18 @@
   "name": "kapitalmaerkte-praesentation",
   "private": true,
   "type": "module",
-  "description": "impress.js-Präsentation: Kapitalmärkte stärken",
+  "description": "reveal.js-Präsentation: Kapitalmärkte stärken",
   "scripts": {
     "start": "vite --open",
-    "data": "node scripts/eiopa-abb1.mjs"
+    "data": "node scripts/eiopa-abb1.mjs",
+    "vendor": "node scripts/vendor.mjs"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
     "exceljs": "^4.4.0",
+    "reveal.js": "6.0.2",
     "vite": "^8.3.6"
   },
   "resolutions": {
